@@ -1,0 +1,85 @@
+<!DOCTYPE hmtl>
+<body>
+<head>
+ <meta charset="UTF-8">
+ <title>Pedra, Papel ou Tesoura</title>
+</head>
+
+<script type="text/javascript">
+//start the game
+var rounds = 0;
+var playerChoice = [];
+function game(answer)
+{ 
+rounds++ 
+ if(rounds === 1)
+ {    
+     playerChoice[0] = answer;
+     
+ }
+ else if(rounds === 2)
+ {
+     playerChoice[1] = answer;
+     rounds++;
+ }
+
+ if(rounds === 3){
+ 
+ alert("Player One escolheu " + playerChoice[0] + " Player two escolheu " + playerChoice[1]); 
+ 
+ return compare(playerChoice[0],playerChoice[1]);
+ 
+}
+ if(rounds >= 4)
+ {
+   alert("ERROR: The program is not working properly");
+ }
+}
+
+
+function compare(choice1,choice2)
+{
+  if(choice1 === choice2)
+      {
+        return "The result is a tie!"; 
+      }
+  else if(choice1 === "rock")
+  {
+      if(choice2 === "scissors")
+      { 
+          return "rock wins";
+      }
+      else 
+      {
+          return "paper wins";
+      }
+  }
+  else if(choice1 === "paper")
+  {
+    if(choice2 === "rock")
+    {
+        return "paper wins";
+    }   
+    else
+    {
+        return "scissors wins";
+    }
+  }
+  else if(choice1 === "scissors")
+  {
+    if(choice2 === "rock")
+    {
+        return "rock wins";
+    }   
+    else
+    {
+        return "scissors wins";
+    }
+  }
+  
+}//close COMPARE function
+</script>
+<button type="button" onclick="game(this.id)" id="rock" value="rock">ROCK</button> 
+<button type="button" onclick="game(this.id)" id="paper" value="paper">PAPER</button> 
+<button type="button" onclick="game(this.id)" id="scissor" value="scissor">SCISSOR</button> 
+</body>
