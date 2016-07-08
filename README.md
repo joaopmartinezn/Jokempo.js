@@ -2,28 +2,18 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
+### A simply Jokempô game made with HTML and JavaScript ###
 
 * Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Version 1 
+* the game rules
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Download the file 'pedra_papel_tesoura.html'
+* Run it on your brownser: Chrome, Fire Fox, Safari or even the old IE(i'am sorry for you if you still use IE)
+* That is it
 
-### Contribution guidelines ###
+### Game rules ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* After running the code the game starts
