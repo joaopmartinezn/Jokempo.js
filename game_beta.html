@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+  ********* Rock Paper Scissor *********
+  |This is a simple HTML and JavaScript|
+  |Jokempô game, I made it just to be  |
+  |functional. I intend to do a web    |
+  |socket application to run this game |
+  |in a server between two clients at  |
+  |the same time.                      |
+  |As you will see the code is simple. |
+  |If you have any improvements for the|
+  |code, make sure to send me an email |
+  |joaopmartinezn@gmail.com            |
+  |Thank you!                          |
+  |And sorry for the simplicity of the |
+  |code.                               |
+  **************************************   
+-->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Rock, Paper and Scissor</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="teal" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo white-text center">Jokmepô</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+    
+        <div class="center">
+          <div class="icon-block">
+            <input type="image" src="imgs\new\rock\rock_b_48.png" alt="Submit" width="100" height="100" onclick="game(this.id)" id="rock">
+          </div>  
+      <div class="icon-block">
+        <input type="image" src="imgs\new\paper\paper_b_48.png" alt="Submit" width="100" height="100" onclick="game(this.id)" id="paper">
+      </div>
+      <div class="icon-block">  
+            <input type="image" src="imgs\new\scissors\scissors_b_48.png" alt="Submit" width="100" height="100" onclick="game(this.id)" id="scissors">
+      </div>
+     </div>
+   
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="https://bitbucket.org/JoaoMartinez/">João Martinez</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+    var playerOneName = prompt("Enter Player One name: ");
+    var playerTwoName = prompt("Enter Player Two name: ");
+
+    //start the game
+    var rounds = 0;
+    var playerTwoScore = 0;
+    var playerOneScore = 0;
+    var playerChoice = [];
+
+    alert(playerOneName+' you first...')
+    function game(answer)
+    { 
+     rounds++ 
+     if(rounds === 1){    
+         playerChoice[0] = answer;
+         alert(playerTwoName+" now it's your turn...");   
+     }
+     else if(rounds === 2){
+         playerChoice[1] = answer;
+         rounds++;
+     }
+
+     if(rounds === 3){
+     alert( playerOneName+"  selected "+playerChoice[0]+" / "+playerTwoName+"  selected "+playerChoice[1]); 
+     compare(playerChoice[0],playerChoice[1]);
+     }
+     if(rounds >= 4){
+       alert("ERROR: The program is not working properly");
+     }
+    }
+
+
+    function compare(choice1,choice2)
+    {
+      if(choice1 === choice2){
+            result = "The result is a tie!"; 
+      }
+      else if(choice1 === "rock"){
+          if(choice2 === "scissors"){ 
+              result = playerOneName+" wins";
+              playerOneScore++
+          }  
+          else{
+              result = playerTwoName+" wins";
+              playerTwoScore++
+          }
+      }
+      else if(choice1 === "paper"){
+        if(choice2 === "rock")
+        {
+            result = playerOneName+" wins";
+            playerOneScore++
+        }   
+        else{
+            result = playerTwoName+" wins";
+            playerTwoScore++
+        }
+        }
+      else if(choice1 === "scissors")
+      {
+        if(choice2 === "rock"){
+            result = playerTwoName+" wins";
+            playerTwoScore++
+        }   
+        else{
+            result = playerOneName+" wins";
+            playerOneScore++
+        }
+      }
+       alert(result);
+       rounds = 0;
+       alert("Scoreboard \n"+playerOneName+" --- "+playerTwoName+"\n" + "     "+ playerOneScore + "         "+ playerTwoScore);
+      }//close COMPARE function
+    </script>
+
+  </body>
+</html>

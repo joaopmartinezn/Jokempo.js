@@ -1,0 +1,3 @@
+content_cut (tesoura)
+insert_drive_file (papel)
+fiber_manual_record (pedra)

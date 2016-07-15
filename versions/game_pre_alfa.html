@@ -1,0 +1,82 @@
+<!DOCTYPE hmtl>
+<body>
+<head>
+ <meta charset="UTF-8">
+ <title>Pedra, Papel ou Tesoura</title>
+</head>
+ <section>
+  <button type="button" onclick="game(this.id)" id="rock" value="rock">ROCK</button> 
+  <button type="button" onclick="game(this.id)" id="paper" value="paper">PAPER</button> 
+  <button type="button" onclick="game(this.id)" id="scissor" value="scissor">SCISSOR</button> 
+ </section>
+</body>
+
+<script type="text/javascript">
+//start the game
+var rounds = 0;
+var playerTwoScore = 0;
+var playerOneScore = 0;
+var playerChoice = [];
+function game(answer)
+{ 
+ rounds++ 
+ if(rounds === 1){    
+     playerChoice[0] = answer;   
+ }
+ else if(rounds === 2){
+     playerChoice[1] = answer;
+     rounds++;
+ }
+
+ if(rounds === 3){
+ alert("Player One escolheu " + playerChoice[0] + " Player two escolheu " + playerChoice[1]); 
+ compare(playerChoice[0],playerChoice[1]);
+ }
+ if(rounds >= 4){
+   alert("ERROR: The program is not working properly");
+ }
+}
+
+
+function compare(choice1,choice2)
+{
+  if(choice1 === choice2){
+        result = "The result is a tie!"; 
+  }
+  else if(choice1 === "rock"){
+      if(choice2 === "scissors"){ 
+          result = "Player 1 wins";
+          playerOneScore++
+      }  
+      else{
+          result = "Player 2 wins";
+          playerTwoScore++
+      }
+  }
+  else if(choice1 === "paper"){
+    if(choice2 === "rock")
+    {
+        result = "Player 1 wins";
+        playerOneScore++
+    }   
+    else{
+        result = "Player 2 wins";
+        playerTwoScore++
+    }
+    }
+  else if(choice1 === "scissors")
+  {
+    if(choice2 === "rock"){
+        result = "Player 2 wins";
+        playerTwoScore++
+    }   
+    else{
+        result = "Player 1 wins";
+        playerOneScore++
+    }
+  }
+   alert(result);
+   rounds = 0;
+   alert("Scoreboard \n P1: " + playerOneScore + "  P2: " + playerTwoScore);
+  }//close COMPARE function
+</script>
